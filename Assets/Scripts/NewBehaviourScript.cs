@@ -22,7 +22,9 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetKeyDown("space"))
         {
-            moveUp = 5;
+            moveUp = 5;  
+
+
         }
         else
         {
