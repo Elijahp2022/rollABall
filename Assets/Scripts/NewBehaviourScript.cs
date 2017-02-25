@@ -6,6 +6,7 @@ public class NewBehaviourScript : MonoBehaviour {
     private Rigidbody rb;
     public float speed;
     float moveUp;
+    public Camera playerCamera;
 
     void Start()
     {
@@ -15,10 +16,14 @@ public class NewBehaviourScript : MonoBehaviour {
 
     void FixedUpdate()
     {
+        
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(moveHorizontal, moveUp, moveVertical);
         rb.AddForce(movement * speed);
+
+        playerCamera.transform.position = transform.position;
+
 
         if (Input.GetKeyDown("space"))
         {
