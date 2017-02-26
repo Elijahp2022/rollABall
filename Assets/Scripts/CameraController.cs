@@ -11,8 +11,14 @@ public class CameraController : MonoBehaviour {
     float rotationRight = 0;
     float rotationLeft = 0;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+
+        public void positionChange ()
+    {
+        position = !position;
+    }
+
+    void Start () {
         offset = transform.position - player.transform.position;
         transform.rotation = Quaternion.AngleAxis(45f, Vector3.right);
 
@@ -20,7 +26,6 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-
 
         if (position == true)
         {

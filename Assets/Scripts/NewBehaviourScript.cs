@@ -5,19 +5,27 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour {
     private Rigidbody rb;
     public float speed;    
-    float moveUp;
+    public float moveUp;
     public Camera playerCamera;
     public float rotationRight = 0;
     float movementSpeed = 10;
+    Vector3 moveForwards;
+    Vector3 moveBack;
+    Vector3 pos;
+    Vector3 forward;
+ 
     void Start()
 
     {
-        rb = GetComponent<Rigidbody>();    
+        rb = GetComponent<Rigidbody>();
+         
     }
 
 
     void FixedUpdate()
-    {     
+    {
+        pos = transform.position;
+        forward = transform.forward;
 
         if(Input.GetKeyDown(KeyCode.R))
         {
@@ -56,7 +64,9 @@ public class NewBehaviourScript : MonoBehaviour {
         //float moveVertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(0, moveUp, 0);
         rb.AddForce(movement * speed);
-
+        
+        
+        
         playerCamera.transform.position = transform.position;
 
         
@@ -64,8 +74,10 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetKeyDown("space"))
         {
-            moveUp = 5;
-            
+            if (moveUp == 0 || moveUp < 0)
+            {
+                moveUp = 5;
+            }
         }
         else
         {
