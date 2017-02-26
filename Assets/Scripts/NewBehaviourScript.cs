@@ -19,6 +19,13 @@ public class NewBehaviourScript : MonoBehaviour {
     void FixedUpdate()
     {     
 
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            //rotation reset
+            transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
+            transform.rotation = Quaternion.AngleAxis(0, Vector3.right);
+        }
+
         if (Input.GetKey(KeyCode.L))
         {
             transform.Rotate(0, 1, 0);
@@ -58,8 +65,7 @@ public class NewBehaviourScript : MonoBehaviour {
         if (Input.GetKeyDown("space"))
         {
             moveUp = 5;
-            transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
-            transform.rotation = Quaternion.AngleAxis(0, Vector3.right);
+            
         }
         else
         {

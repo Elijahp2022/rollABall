@@ -26,8 +26,9 @@ public class CameraController : MonoBehaviour {
         {
             //third person view
             transform.position = player.transform.position + offset;
-          
-           
+            transform.rotation = Quaternion.AngleAxis(45f, Vector3.right);
+
+
         }   
         else
         {
