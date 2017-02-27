@@ -7,17 +7,29 @@ public class NewBehaviourScript : MonoBehaviour {
     public float speed;    
     public float moveUp;
     public Camera playerCamera;
+    public GameObject text;
     public float rotationRight = 0;
     float movementSpeed = 10;
+    float score = 0;
     Vector3 moveForwards;
     Vector3 moveBack;
     Vector3 pos;
     Vector3 forward;
- 
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Pick up"))
+        {
+            other.gameObject.SetActive(false);
+            score = score + 1;
+        }
+    }
+
     void Start()
 
     {
         rb = GetComponent<Rigidbody>();
+        text.gameObject.SetActive(false);
          
     }
 
@@ -89,6 +101,11 @@ public class NewBehaviourScript : MonoBehaviour {
             {
                 // because it's already falling fast, do nothing
             }
+        }
+
+        if (score == 13)
+        {
+            text.gameObject.SetActive(true);
         }
     }
 
